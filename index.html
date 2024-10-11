@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Titanic Survival Prediction</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="Pclass">Class of Passenger</label>
+                <select class="form-control" name="Pclass" id="Pclass" required>
+                    <option value="">Select Class</option>
+                    <option value="Premiere">Premiere</option>
+                    <option value="Executive">Executive</option>
+                    <option value="Economy">Economy</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Sex">Gender</label>
+                <select class="form-control" name="Sex" id="Sex" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Age">Age of Passenger</label>
+                <input type="number" class="form-control" name="Age" id="Age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="SibSp">Siblings/Spouses</label>
+                <input type="number" class="form-control" name="SibSp" id="SibSp" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Parch">Parents/Children</label>
+                <input type="number" class="form-control" name="Parch" id="Parch" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Fare">Fare of Journey</label>
+                <input type="number" class="form-control" name="Fare" id="Fare" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Embarked">Embarkation Point</label>
+                <select class="form-control" name="Embarked" id="Embarked" required>
+                    <option value="">Select Embarkation Point</option>
+                    <option value="Cherbourg">Cherbourg</option>
+                    <option value="Queenstown">Queenstown</option>
+                    <option value="Southampton">Southampton</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="alert alert-info mt-4 text-center">
+                <strong>Prediction:</strong> {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
